@@ -75,6 +75,7 @@ def update_bq(df, table, dataset='crypto', if_exists = 'replace'):
     # Conectando com a API
     project_id = os.getenv('project_id')
     path_json = 'C:\projetos\crypto\ETL\GCP.json'
+    #path_json ='/mnt/c/projetos/crypto/ETL/GCP.json'
     credentials = service_account.Credentials.from_service_account_file(path_json)
     # Enviando os dados 
     pandas_gbq.to_gbq(df,destination_table=f'{dataset}.{table}',project_id=project_id,if_exists=if_exists,credentials=credentials)
