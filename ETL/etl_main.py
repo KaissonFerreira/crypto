@@ -8,8 +8,7 @@ lista_crypto = ['DOT',
                 'BTT',
                 'ADA', 
                 'BTC', 
-                'ETH',
-                'ATOM']
+                'ETH']
 
 lista_table = name_table(lista_crypto)
 def etl():
