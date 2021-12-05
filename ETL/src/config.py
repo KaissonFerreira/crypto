@@ -28,5 +28,3 @@ LIST_CRIPTO = {'ETH':'Ethereum',
                 'MATIC':'Polygon',
                 'AVAX':'Avalanche'}
 
-
-
