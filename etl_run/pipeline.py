@@ -1,26 +1,18 @@
-from extract.config_extract import extract_binance,name_table,update_bq
+from config import LIST_CRIPTO
+from loading import Loading
+from extract import Extract
 
 
-# Lista de criptomoedas que serão avaliadas...
-lista_crypto = ['DOT', 
-                'MATIC', 
-                'SOL', 
-                'BTT',
-                'ADA', 
-                'BTC', 
-                'ETH']
-
-lista_table = name_table(lista_crypto)
-def etl():
-    for i in range(len(lista_crypto)):
-        df = extract_binance(lista_crypto[i])
-        update_bq(df,lista_table[i])
+def pipeline():
+    for i in range(len(LIST_CRIPTO)):
+        df = Extract.extract_binance(LIST_CRIPTO[i])
+        Loading().BigQuery(df)
     print('\nProcesso de ETL completo para as seguintes criptomoedas')
-    return print(lista_crypto)
+    return print(LIST_CRIPTO)
 
 
 if __name__ == '__main__':
-    etl()
+    pipeline()
 
     
 

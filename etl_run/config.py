@@ -5,7 +5,7 @@ CREDENTIALS_GCP = en["GCP"]
 PROJECT_ID = 'black-resource-334223'
 DATASET = 'Dataset_cripto'
 
-# My SQL
+# My SQL e SQLAchemy
 KEY_SQL = en['SENHA']
 HOST = '127.0.0.1'
 USER = 'root'

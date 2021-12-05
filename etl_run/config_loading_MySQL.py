@@ -2,16 +2,8 @@
 import mysql.connector
 import os
 import pandas as pd
-from config_extract import Extract
+from extract import Extract
 
-# Lista de criptomoedas que serão avaliadas...
-lista_crypto = ['DOT', 
-                'MATIC', 
-                'SOL', 
-                'BTT',
-                'ADA', 
-                'BTC', 
-                'ETH']
 
 #%%
 #def update_bd_mysql(df, table):
@@ -33,7 +25,7 @@ if conn.is_connected():
 pd.read_sql('select * from crypto_table',conn)
 
 #%%
-df = Extract("ETH")
+df = Extract()
 df = df.extract_binance()
 df.to_sql('name = ETH',conn)
     

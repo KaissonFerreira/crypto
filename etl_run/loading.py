@@ -39,10 +39,7 @@ class Loading:
                             host=host,
                             database=database)
 
-    
-
-
-
+    # Função que envia os dados por meio do SQLAlchemy
     def SQLalchemy (self, dataframe):
         key = config.KEY_SQL
         user = config.USER
