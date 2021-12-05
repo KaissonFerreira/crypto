@@ -1,4 +1,4 @@
-from extract.config import extract_binance,name_table,update_bq
+from extract.config_extract import extract_binance,name_table,update_bq
 
 
 # Lista de criptomoedas que serão avaliadas...
