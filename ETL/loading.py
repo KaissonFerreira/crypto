@@ -9,9 +9,31 @@ from google.oauth2 import  service_account
 
 
 class Loading:
-    def __init__(self,BigQuery,MySQL) -> None:
-        self.BigQuery = BigQuery
-        self.MySQL = MySQL
+    dataset = config.DATASET
+    project_id = config.PROJECT_ID
+    path_json = config.CREDENTIALS_GCP
+    credentials = service_account.Credentials.from_service_account_file(path_json)
+    password = config.KEY_SQL
+    host = config.HOST
+    database = config.DATABASE
+    user = config.USER
+    
+    def __init__(self,
+                dataset=dataset,
+                project_id = project_id,
+                path_json=path_json,
+                credentials = credentials,
+                password = password,
+                host = host,
+                database = database,
+                user = user) -> None:
+                self.dataset = dataset
+                self.project_id = project_id
+                self.password = password
+                self.host = host
+                self.database = database
+                self.user = user
+        
     
     # Função que envia os dados para o BQ
     def BigQuery(self,dataframe, table, if_exists=str, **kwargs):
@@ -22,10 +44,10 @@ class Loading:
         if_exists = 'append' or 'replace'\n\n"""
         #print('Inciando o carregamento da tabela {}'.format(table))
         # Conectando com a API
-        dataset = config.DATASET
-        project_id = config.PROJECT_ID
-        path_json = config.CREDENTIALS_GCP
-        credentials = service_account.Credentials.from_service_account_file(path_json)
+        dataset = self.dataset
+        project_id = self.project_id
+        path_json = self.path_json
+        credentials = self.credentials
         # Enviando os dados 
         return pandas_gbq.to_gbq(dataframe,destination_table=f'{dataset}.{table}',project_id=project_id,if_exists=if_exists,credentials=credentials)
     
@@ -36,14 +58,14 @@ class Loading:
         table = Nome da tabela\n
         dataset = Nome do Dataset\n
         if_exists = 'append' or 'replace'\n\n"""
-        password = config.KEY_SQL
-        host = config.HOST
-        database = config.DATABASE
-        user = config.USER
-        conn = mysql.connect(user=user, 
-                            password=password,
-                            host=host,
-                            database=database)
+        password = self.password
+        host = self.host
+        database = self.database
+        user = self.user
+        conn = mysql.connect(user, 
+                            password,
+                            host,
+                            database)
         engine = sqlalchemy.create_engine(f'mysql+mysqlconnector://{user}:{password}@localhost:3306/{database}')
         
         try:
