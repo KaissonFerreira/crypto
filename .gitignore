@@ -13,9 +13,9 @@ __pycache__/*
 .*.swp
 */.ipynb_checkpoints/*
 .DS_Store
-.env
-.csv
-.xlsx
+*.env
+*.csv
+*.xlsx
 
 # Project files
 .ropeproject
