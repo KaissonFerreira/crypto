@@ -9,23 +9,23 @@
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/crypto_01)
 -->
 
-# crypto_01
+# crypto
 
-> Add a short description here!
+> This project aims to perform the ETL of some cryptocurrencies on the Binance platform and load them into Big Query, and later analyze them with predictive models.
 
-A longer description of your project goes here...
+
 
 ## Installation
 
 In order to set up the necessary environment:
 
-1. review and uncomment what you need in `environment.yml` and create an environment `crypto_01` with the help of [conda]:
+1. review and uncomment what you need in `environment.yml` and create an environment `crypto` with the help of [conda]:
    ```
    conda env create -f environment.yml
    ```
 2. activate the new environment with:
    ```
-   conda activate crypto_01
+   conda activate crypto
    ```
 
 > **_NOTE:_**  The conda environment will have crypto_01 installed in editable mode.
@@ -59,7 +59,7 @@ Then take a look into the `scripts` and `notebooks` folders.
 2. Create concrete dependencies as `environment.lock.yml` for the exact reproduction of your
    environment with:
    ```bash
-   conda env export -n crypto_01 -f environment.lock.yml
+   conda env export -n crypto -f environment.lock.yml
    ```
    For multi-OS development, consider using `--no-builds` during the export.
 3. Update your current environment with respect to a new `environment.lock.yml` using:
@@ -75,32 +75,33 @@ Then take a look into the `scripts` and `notebooks` folders.
 ├── Dockerfile              <- Build a docker container with `docker build .`.
 ├── LICENSE.txt             <- License as chosen on the command-line.
 ├── README.md               <- The top-level README for developers.
-├── configs                 <- Directory for configurations of model & application.
-├── data
-│   ├── external            <- Data from third party sources.
-│   ├── interim             <- Intermediate data that has been transformed.
-│   ├── processed           <- The final, canonical data sets for modeling.
-│   └── raw                 <- The original, immutable data dump.
+├── ETL                     <- Run ETL for cryptocurrencies.
+|  └── logs                   <- Logs of the ETL dailly.
+├── code
+|  ├── configs                <- Directory for configurations of model & application.
+|  ├── data
+│     ├── external            <- Data from third party sources.
+│     ├── interim             <- Intermediate data that has been transformed.
+│     ├── processed           <- The final, canonical data sets for modeling.
+│     └── raw                 <- The original, immutable data dump.
+|  ├── models                 <- Trained and serialized models, model predictions,
+|  │                                or model summaries.
+│  ├── notebooks              <- Jupyter notebooks. Naming convention is a number (for
+│  │                                ordering), the creator's initials and a description,
+│  │                                e.g. `1.0-fw-initial-data-exploration`.
+│  ├── src
+│  │   └── crypto_01           <- Actual Python package where the main functionality goes.
+│  ├── tests                   <- Unit tests which can be run with `pytest`.
 ├── docs                    <- Directory for Sphinx documentation in rst or md.
 ├── environment.yml         <- The conda environment file for reproducibility.
-├── models                  <- Trained and serialized models, model predictions,
-│                              or model summaries.
-├── notebooks               <- Jupyter notebooks. Naming convention is a number (for
-│                              ordering), the creator's initials and a description,
-│                              e.g. `1.0-fw-initial-data-exploration`.
 ├── pyproject.toml          <- Build configuration. Don't change! Use `pip install -e .`
 │                              to install for development or to build `tox -e build`.
 ├── references              <- Data dictionaries, manuals, and all other materials.
 ├── reports                 <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures             <- Generated plots and figures for reports.
-├── scripts                 <- Analysis and production scripts which import the
-│                              actual PYTHON_PKG, e.g. train_model.
 ├── setup.cfg               <- Declarative configuration of your project.
 ├── setup.py                <- [DEPRECATED] Use `python setup.py develop` to install for
 │                              development or `python setup.py bdist_wheel` to build.
-├── src
-│   └── crypto_01           <- Actual Python package where the main functionality goes.
-├── tests                   <- Unit tests which can be run with `pytest`.
 ├── .coveragerc             <- Configuration for coverage reports of unit tests.
 ├── .isort.cfg              <- Configuration for git hook that sorts imports.
 └── .pre-commit-config.yaml <- Configuration of pre-commit git hooks.
