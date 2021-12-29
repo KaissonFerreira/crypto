@@ -11,31 +11,7 @@ from google.oauth2 import  service_account
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
-#class Loading:
-dataset = config.DATASET
-project_id = config.PROJECT_ID
-path_json = r'D:\projetos\key_gcp\black-resource-334223-da2c0308e5cd.json'
-credentials = service_account.Credentials.from_service_account_file(path_json)
-password = config.KEY_SQL
-host = config.HOST
-database = config.DATABASE
-user = config.USER
-    
-    #def __init__(self,
-        ##       project_id = project_id,
-         #       path_json=path_json,
-         #       credentials = credentials,
-          #      password = password,
-          #      host = host,
-          #      database = database,
-          #      user = user) -> None:
-         #       self.dataset = dataset
-          #      self.project_id = project_id
-         #       self.password = password
-         #       self.host = host
-         #       self.database = database
-        #        self.user = user
-        
+
     
 # Função que envia os dados para o BQ
 def BigQuery(dataframe, table, if_exists=str, **kwargs):
