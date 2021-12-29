@@ -24,7 +24,7 @@ LIST_CRIPTO = {'ETH':'Ethereum',
                 'BTT':'BitTorrent',
                 'MANA':'Decentraland',
                 'AXS':'Axie Infinity',
-                'LUNA':'Terra',
+                #'LUNA':'Terra',
                 'MATIC':'Polygon',
                 'AVAX':'Avalanche'}
 
