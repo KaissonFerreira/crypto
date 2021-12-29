@@ -1,6 +1,7 @@
 import config
-from loading import Loading
+from loading import BigQuery, MySQL
 from extract import Extract
+from transform import Transform
 
 class Pipeline:
     lista_cripto = config.LIST_CRIPTO
@@ -15,10 +16,12 @@ class Pipeline:
         cripto = self.lista_cripto
         for i in range(len(cripto)):
             df = Extract.extract_binance(symbol=list(cripto)[i])
+            df = Transform.transform(df)
+            print('\nDados transformados\n')
             if database == 'bigquery':
-                Loading().BigQuery(df,table=list(cripto.values())[i],if_exists='replace')
+                BigQuery(df,table=list(cripto.values())[i],if_exists='replace')
             elif database == 'mysql':
-                Loading().MySQL(df,cripto[i])
+                MySQL(df,cripto[i])
             else:
                 NameError.args('Erro no nome da base de dados para o carregamento')
         return print('\nProcesso de ETL completo para as seguintes criptomoedas:\n',list(cripto))
@@ -29,11 +32,12 @@ class Pipeline:
 
             Date = '1 Jan, 2019' # Pegar a útima data do logging info
             df = Extract.extract_binance(cripto[i],date=f'{Date}')
+            
             df = Extract.extract_binance(cripto[i])
             if database == 'bigquery':
-                Loading().BigQuery(df,table=cripto[i],if_exists='append')
+                BigQuery(df,table=cripto[i],if_exists='append')
             elif database == 'mysql':
-                Loading().MySQL(df,cripto[i],if_exists='append')
+                MySQL(df,cripto[i],if_exists='append')
         return print('\nProcesso de ETL completo para as seguintes criptomoedas:\n',list(cripto))
 
 
