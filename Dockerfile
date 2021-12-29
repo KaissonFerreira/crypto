@@ -52,7 +52,7 @@ RUN mamba clean --packages --yes
 RUN rm -rf /home/app/.cache/pip
 
 # Make RUN commands use the conda environment
-SHELL ["conda", "run", "-n", "crypto_01", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "crypto", "/bin/bash", "-c"]
 
 RUN pip install ./*.whl
 
