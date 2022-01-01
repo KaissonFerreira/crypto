@@ -8,7 +8,9 @@
 [![Monthly Downloads](https://pepy.tech/badge/crypto_01/month)](https://pepy.tech/project/crypto_01)
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/crypto_01)
 -->
-
+---
+![Alt text](https://github.com/KaissonFerreira/crypto/blob/16a3c54253ad4632cb4c4e323e442ef89c5b7619/reports/figures/cripto.png)
+---
 # crypto
 
 > This project aims to perform the ETL of some cryptocurrencies on the Binance platform and load them into Big Query, and later analyze them with predictive models.
