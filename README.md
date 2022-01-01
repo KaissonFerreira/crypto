@@ -77,6 +77,12 @@ Then take a look into the `scripts` and `notebooks` folders.
 ├── README.md               <- The top-level README for developers.
 ├── ETL                     <- Run ETL for cryptocurrencies.
 |  └── logs                   <- Logs of the ETL dailly.
+│  ├── src
+│     ├── config.py              <- Script for the configurations
+│     ├── extract.py             <- Script for the extraction of data.
+│     ├── loading.py             <- Script for the loading data in Base Data (Big Query or MySQL).
+│     ├── pipeline.py            <- Script for the Pipeline of the data.
+│     └── transform.py           <- Script for the trasfortion data.
 ├── code
 |  ├── configs                <- Directory for configurations of model & application.
 |  ├── data
